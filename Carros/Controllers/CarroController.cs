@@ -104,18 +104,36 @@ namespace Carros.Controllers
             return carros;
         }
 
+        public JsonResult GetClassicos()
+        {
+            return Json(this.CarrosClassicos(), "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetLuxo()
+        {
+            return Json(this.CarrosLuxo(), "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetEsportivos()
+        {            
+            return Json(this.CarrosEsportivos(), "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
         public JsonResult Classicos()
         {
             return Json(this.CarrosClassicos(), "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
         public JsonResult Luxo()
         {
             return Json(this.CarrosLuxo(), "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
         }
 
+        [HttpPost]
         public JsonResult Esportivos()
-        {            
+        {
             return Json(this.CarrosEsportivos(), "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
         }
     }
