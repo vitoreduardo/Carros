@@ -44,7 +44,7 @@ namespace Carros.Controllers
             }
             );
             return carros;
-        }
+        }        
 
         private ListaDeCarros CarrosLuxo() {
             ListaDeCarros carros = new ListaDeCarros();
@@ -109,14 +109,29 @@ namespace Carros.Controllers
             return Json(this.CarrosClassicos(), "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult getListaClassicos()
+        {
+            return Json(this.CarrosClassicos().Carros, "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult GetLuxo()
         {
             return Json(this.CarrosLuxo(), "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
         }
 
+        public JsonResult getListaLuxo()
+        {
+            return Json(this.CarrosLuxo().Carros, "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
+        }
+
         public JsonResult GetEsportivos()
         {            
             return Json(this.CarrosEsportivos(), "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetListaEsportivos()
+        {
+            return Json(this.CarrosEsportivos().Carros, "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
@@ -126,15 +141,33 @@ namespace Carros.Controllers
         }
 
         [HttpPost]
+        public JsonResult ListaClassicos()
+        {
+            return Json(this.CarrosClassicos().Carros, "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
         public JsonResult Luxo()
         {
             return Json(this.CarrosLuxo(), "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]
+        public JsonResult ListaLuxo()
+        {
+            return Json(this.CarrosLuxo().Carros, "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
         public JsonResult Esportivos()
         {
             return Json(this.CarrosEsportivos(), "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult ListaEsportivos()
+        {
+            return Json(this.CarrosEsportivos().Carros, "application/json", Encoding.UTF8, JsonRequestBehavior.AllowGet);
         }
     }
 }
